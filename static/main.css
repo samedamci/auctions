@@ -58,12 +58,76 @@ h1 {
   margin: auto 100px;
 }
 
+.login-form {
+  width: 500px;
+  height: 418px;
+  background: #384856;
+  margin: 50px auto;
+  box-shadow: 0px 0px 10px 1px #141314;
+  color: white;
+}
+
+.form-group {
+  margin: auto;
+  border: none;
+  width: 220px;
+}
+
+.form-header {
+  text-align: center;
+  margin: 20px 0;
+  padding: 25px 0 15px;
+}
+
+.form-label {
+  display: block;
+  margin: 4px;
+}
+
+.form-submit {
+  background: #679496;
+  width: 97%;
+  height: 30px;
+  border: 1px solid #8cdbce;
+  color: white;
+  border-radius: 3px;
+  margin-top: 8px;
+  font-family: monospace;
+  transition: .3s;
+}
+
+.form-submit:hover {
+  background: #55787a;
+  cursor: pointer;
+}
+
+.form-small {
+  word-break: break-all;
+  display: block;
+  text-align: center;
+  width: 90%;
+  margin: 20px auto;
+  font-size: 11px;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    margin: 30px !important;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .navigation-logo {
     display: none;
   }
 
+  .login-form {
+    width: 85vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .container {
-    margin: auto 25px;
+    margin: 10px !important;
   }
 }

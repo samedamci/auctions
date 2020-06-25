@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="login-form">
+  <h1 class="form-header">Register</h1>
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <div class="form-group">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-input") }}
+      </div>
+      <div class="form-group">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-input") }}
+      </div>
+      <div class="form-group">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-input") }}
+      </div>
+			<div class="form-group">
+        {{ form.confirm_password.label(class="form-label") }}
+        {{ form.confirm_password(class="form-input") }}
+      </div>
+    </fieldset>
+		<div class="form-group">
+			{{ form.submit(class="form-submit") }}
+		</div>
+  </form>
+	<span class="form-small">
+		You already have an account?
+		<a href="{{ url_for('login') }}">Log in!</a>
+	</span>
+</div>
+{% endblock %}
