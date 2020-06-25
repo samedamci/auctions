@@ -13,6 +13,10 @@
         {{ form.password.label(class="form-label") }}
         {{ form.password(class="form-input") }}
       </div>
+			<div class="form-group">
+				{{ form.remember(class="form-input form-checkbox") }}
+				{{ form.remember.label(class="form-label inline") }}
+			</div>
     </fieldset>
 		<div class="form-group">
 			{{ form.submit(class="form-submit") }}

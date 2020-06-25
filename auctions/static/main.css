@@ -110,6 +110,10 @@ h1 {
   font-size: 11px;
 }
 
+.form-checkbox {
+  margin-top: 12px;
+}
+
 .invalid {
   color: rgb(251, 141, 166);
   margin: 5px 0;
@@ -121,6 +125,7 @@ h1 {
   border-radius: 4px;
   margin: 50px auto;
   color: white;
+  box-shadow: 0px 0px 10px 1px #141314;
 }
 
 .alert-success {
@@ -151,4 +156,8 @@ h1 {
   .container {
     margin: 10px !important;
   }
+}
+
+.inline {
+  display: inline-block !important;
 }

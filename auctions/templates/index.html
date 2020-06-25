@@ -18,12 +18,18 @@
           <li class="navigation-item nav-l">
             <a href="{{ url_for('about') }}">About</a>
           </li>
-          <li class="navigation-item nav-r">
-            <a href="{{ url_for('register') }}">Register</a>
-          </li>
-          <li class="navigation-item nav-r">
-            <a href="{{ url_for('login') }}">Login</a>
-          </li>
+          {% if current_user.is_authenticated %}
+            <li class="navigation-item nav-r">
+              <a href="{{ url_for('logout') }}">Logout</a>
+            </li>
+          {% else %}
+            <li class="navigation-item nav-r">
+              <a href="{{ url_for('register') }}">Register</a>
+            </li>
+            <li class="navigation-item nav-r">
+              <a href="{{ url_for('login') }}">Login</a>
+            </li>
+          {% endif %}
         </ul>
       </nav>
     </header>
