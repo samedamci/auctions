@@ -20,7 +20,19 @@
           </li>
           {% if current_user.is_authenticated %}
             <li class="navigation-item nav-r">
-              <a href="{{ url_for('logout') }}">Logout</a>
+              <a href="{{ url_for('logout') }}" class="invalid">Logout</a>
+            </li>
+            <li class="navigation-item nav-r">
+              <a href="{{ url_for('settings') }}">Settings</a>
+            </li>
+            <li class="navigation-item nav-r">
+              <a href="{{ url_for('profile') }}">Profile</a>
+            </li>
+            <li class="navigation-item nav-r">
+              <a href="{{ url_for('observed') }}">Observed</a>
+            </li>
+            <li class="navigation-item nav-r">
+              <a href="{{ url_for('cart') }}">Cart</a>
             </li>
           {% else %}
             <li class="navigation-item nav-r">
