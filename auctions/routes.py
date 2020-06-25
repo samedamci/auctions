@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 
-from flask import Flask, render_template, url_for, flash, redirect
-
-from settings import SECRET_KEY
-from forms import Register, Login
-
-app = Flask(__name__)
-app.config["SECRET_KEY"] = SECRET_KEY
+from flask import render_template, url_for, flash, redirect
+from auctions.forms import Register, Login
+from auctions.models import User, Auction
+from auctions import app
 
 
 @app.route("/")
