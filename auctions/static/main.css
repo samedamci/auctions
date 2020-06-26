@@ -19,6 +19,11 @@ h1 {
   margin-left: 50px;
 }
 
+p {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
 .navigation-bar {
   width: 100%;
   height: 45px;
