@@ -2,12 +2,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: monospace;
+  background: #d2eaf0;
 }
 
 a {
   color: #8cdbce;
   text-decoration: none;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 a:hover {
@@ -93,7 +94,7 @@ h1 {
   border-radius: 3px;
   margin-top: 8px;
   font-family: monospace;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .form-submit:hover {
@@ -129,11 +130,11 @@ h1 {
 }
 
 .alert-success {
-  background: rgba(65, 175, 98, .98);
+  background: rgba(65, 175, 98, 0.98);
 }
 
 .alert-failed {
-  background: rgba(173, 43, 73, .98);
+  background: rgba(173, 43, 73, 0.98);
 }
 
 @media only screen and (max-width: 700px) {
@@ -144,17 +145,78 @@ h1 {
 
 @media only screen and (max-width: 600px) {
   .navigation-logo {
-    display: none;
+    margin-left: 50px;
   }
 
   .login-form {
     width: 85vw;
   }
-}
 
-@media only screen and (max-width: 600px) {
   .container {
     margin: 10px !important;
+  }
+
+  .hamburger-parent {
+    position: absolute;
+    width: 26px;
+    height: 19px;
+    margin: 8px;
+  }
+
+  .hamburger-child {
+    background: #8cdbce;
+    height: 4px;
+    top: -12px;
+    position: relative;
+  }
+
+  .hamburger-child::before,
+  .hamburger-child::after {
+    content: " ";
+    background: #8cdbce;
+    width: 26px;
+    height: 4px;
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+  }
+
+  .hamburger-child::after {
+    top: 16px;
+  }
+
+  .hamburger-child::before {
+    top: 8px;
+  }
+
+  .hamburger-parent ul.navigation-ul {
+    transition: 0.3s;
+    list-style-type: none;
+    margin: 0 0 0 -350px;
+    display: block;
+    width: 300px;
+    height: 100vh;
+    background: #384856;
+    padding: 0;
+    box-shadow: 0px 10px 10px 0px #141314;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hamburger-parent li.navigation-item {
+    padding: 12px 0;
+    text-align: center;
+    transition: 0.3s;
+    float: none;
+    display: block;
+  }
+
+  .hamburger-parent:hover .navigation-ul {
+    margin-left: -10px;
+  }
+
+  .hamburger-parent li:hover {
+    background: #283540;
   }
 }
 

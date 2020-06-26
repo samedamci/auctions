@@ -14,35 +14,39 @@
         <span class="navigation-logo">
           <a href="{{ url_for('home') }}">Auctions</a>
         </span>
-        <ul class="navigation-ul">
-          <li class="navigation-item nav-l">
-            <a href="{{ url_for('about') }}">About</a>
-          </li>
-          {% if current_user.is_authenticated %}
-            <li class="navigation-item nav-r">
-              <a href="{{ url_for('logout') }}" class="invalid">Logout</a>
-            </li>
-            <li class="navigation-item nav-r">
-              <a href="{{ url_for('settings') }}">Settings</a>
-            </li>
-            <li class="navigation-item nav-r">
-              <a href="{{ url_for('profile') }}">Profile</a>
-            </li>
-            <li class="navigation-item nav-r">
-              <a href="{{ url_for('observed') }}">Observed</a>
-            </li>
-            <li class="navigation-item nav-r">
-              <a href="{{ url_for('cart') }}">Cart</a>
-            </li>
-          {% else %}
-            <li class="navigation-item nav-r">
-              <a href="{{ url_for('register') }}">Register</a>
-            </li>
-            <li class="navigation-item nav-r">
-              <a href="{{ url_for('login') }}">Login</a>
-            </li>
-          {% endif %}
-        </ul>
+        <div class="hamburger-parent">
+          <div class="hamburger-child">
+            <ul class="navigation-ul">
+              <a href="{{ url_for('about') }}">
+                <li class="navigation-item nav-l">About</li>
+              </a>
+              {% if current_user.is_authenticated %}
+                <a href="{{ url_for('logout') }}" class="invalid">
+                  <li class="navigation-item nav-r">Logout</li>
+                </a>
+                <a href="{{ url_for('settings') }}">
+                  <li class="navigation-item nav-r">Settings</li>
+                </a>
+                <a href="{{ url_for('profile') }}">
+                  <li class="navigation-item nav-r">Profile</li>
+                </a>
+                <a href="{{ url_for('observed') }}">
+                  <li class="navigation-item nav-r">Observed</li>
+                </a>
+                <a href="{{ url_for('cart') }}">
+                  <li class="navigation-item nav-r">Cart</li>
+                </a>
+              {% else %}
+                <a href="{{ url_for('register') }}">
+                  <li class="navigation-item nav-r">Register</li>
+                </a>
+                <a href="{{ url_for('login') }}">
+                  <li class="navigation-item nav-r">Login</li>
+                </a>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
     <div class="container">
