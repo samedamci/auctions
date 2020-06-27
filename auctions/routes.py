@@ -18,6 +18,11 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/auctions")
+def auctions():
+    return render_template("auctions.html", auction=Auction)
+
+
 # Displayed if user not logged in.
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -104,5 +109,5 @@ def add_auction():
             db.session.add(auction)
             db.session.commit()
             flash(f'Auction "{form.title.data}" has been added!', "success")
-            return redirect(url_for("home"))
+            return redirect(url_for("auctions"))
         return render_template("add_auction.html", form=form)

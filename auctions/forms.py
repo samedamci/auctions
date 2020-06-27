@@ -10,10 +10,8 @@ from wtforms import (
     FileField,
     DateField,
 )
-# from wtforms.fields.html5 import DateField
 from wtforms.validators import (
     DataRequired,
-    InputRequired,
     Length,
     Email,
     EqualTo,
@@ -62,7 +60,7 @@ class AddAuction(FlaskForm):
         default=((datetime.now() + timedelta(days=1))),
         validators=[DataRequired()],
     )
-    buy_now_price = FloatField("Buy now price", validators=[Optional()])
-    call_price = FloatField("Call price", validators=[DataRequired()])
+    buy_now_price = FloatField("Buy now price (USD)", validators=[Optional()])
+    call_price = FloatField("Call price (USD)", validators=[DataRequired()])
     image = FileField("Picture", validators=[Optional()])
     submit = SubmitField("Add auction")

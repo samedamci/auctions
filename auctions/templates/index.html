@@ -20,6 +20,9 @@
               <a href="{{ url_for('about') }}">
                 <li class="navigation-item nav-l">About</li>
               </a>
+              <a href="{{ url_for('auctions') }}">
+                <li class="navigation-item nav-l">Auctions</li>
+              </a>
               {% if current_user.is_authenticated %}
                 <a href="{{ url_for('logout') }}" class="invalid">
                   <li class="navigation-item nav-r">Logout</li>

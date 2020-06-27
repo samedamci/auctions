@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block content %}
+  {% for number in range(auction.query.count()) %}
+    <div class="auction-container">
+      <p class="auction-title">{{ auction.query.get(number + 1).title }}</p>
+      <p class="auction-description">{{ auction.query.get(number + 1).description }}</p>
+      <div class="auction-buy-now">
+        <span>Buy now:</span>
+        <p class="auction-buy-now-price">
+          {{ auction.query.get(number + 1).buy_now_price }} USD
+        </p>
+      </div>
+      <div class="auction-call">
+        <span>Call price:</span>
+        <p class="auction-call-price">
+          {{ auction.query.get(number + 1).call_price }} USD
+        </p>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
