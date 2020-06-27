@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from flask import render_template, url_for, flash, redirect
-from auctions.forms import Register, Login
+from auctions.forms import Register, Login, AddAuction
 from auctions.models import User, Auction
 from auctions import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
@@ -65,22 +65,44 @@ def logout():
 @app.route("/settings")
 @login_required
 def settings():
-    return render_template('settings.html')
+    return render_template("settings.html")
 
 
 @app.route("/profile")
 @login_required
 def profile():
-    return render_template('profile.html')
+    return render_template("profile.html")
 
 
 @app.route("/observed")
 @login_required
 def observed():
-    return render_template('observed.html')
+    return render_template("observed.html")
 
 
 @app.route("/cart")
 @login_required
 def cart():
-    return render_template('cart.html')
+    return render_template("cart.html")
+
+
+@app.route("/add_auction", methods=["GET", "POST"])
+@login_required
+def add_auction():
+    if current_user.is_authenticated:
+        form = AddAuction()
+        if form.validate_on_submit():
+            auction = Auction(
+                title=form.title.data,
+                description=form.description.data,
+                date_end=form.date_end.data,
+                buy_now_price=form.buy_now_price.data,
+                call_price=form.call_price.data,
+                image=form.image.data,
+                user_id=User.query.filter_by(username=current_user.username).first().id
+            )
+            db.session.add(auction)
+            db.session.commit()
+            flash(f'Auction "{form.title.data}" has been added!', "success")
+            return redirect(url_for("home"))
+        return render_template("add_auction.html", form=form)

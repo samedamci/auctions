@@ -1,8 +1,26 @@
 #!/usr/bin/env python3
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from wtforms import (
+    StringField,
+    PasswordField,
+    SubmitField,
+    BooleanField,
+    FloatField,
+    FileField,
+    DateField,
+)
+# from wtforms.fields.html5 import DateField
+from wtforms.validators import (
+    DataRequired,
+    InputRequired,
+    Length,
+    Email,
+    EqualTo,
+    ValidationError,
+    Optional,
+)
+from datetime import datetime, timedelta
 from auctions.models import User
 
 
@@ -34,3 +52,17 @@ class Login(FlaskForm):
     password = PasswordField("Password", validators=[DataRequired()])
     remember = BooleanField("Remember me")
     submit = SubmitField("Sign In")
+
+
+class AddAuction(FlaskForm):
+    title = StringField("Title", validators=[DataRequired(), Length(min=3, max=100)])
+    description = StringField("Description", validators=[DataRequired()])
+    date_end = DateField(
+        "End of auction date",
+        default=((datetime.now() + timedelta(days=1))),
+        validators=[DataRequired()],
+    )
+    buy_now_price = FloatField("Buy now price", validators=[Optional()])
+    call_price = FloatField("Call price", validators=[DataRequired()])
+    image = FileField("Picture", validators=[Optional()])
+    submit = SubmitField("Add auction")

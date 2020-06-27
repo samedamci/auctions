@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
     auctions = db.relationship("Auction", backref="seller", lazy=True)
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}')"
+        return f"User({self.id}, '{self.username}', '{self.email}')"
 
 
 class Auction(db.Model):
@@ -30,9 +30,9 @@ class Auction(db.Model):
     date_end = db.Column(db.DateTime, nullable=False)
     description = db.Column(db.Text)
     buy_now_price = db.Column(db.Float)
-    call_price = db.Column(db.Float)
-    image = db.Column(db.String(20), nullable=False)
+    call_price = db.Column(db.Float, nullable=False)
+    image = db.Column(db.String(20))
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
-    def __repr_(self):
+    def __repr__(self):
         return f"Auction('{self.title}', '{self.date_posted}')"
