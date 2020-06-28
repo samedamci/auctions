@@ -1,0 +1,32 @@
+{% extends "index.html" %} {% block content %}
+<h1>
+  {{ title }}
+</h1>
+<p>Overview</p>
+<div class="auction-description_deep">
+  <p>Posted:</p>
+  <span>{{ date_posted_human }}</span>
+  <p>End of auction date:</p>
+  {% if date_now > date_end %}
+    <p class="invalid">Auction ended</p>
+  {% else %}
+    <span>{{ date_end }}</span>
+  {% endif %}
+</div>
+<p>Description</p>
+<p class="auction-description_deep">
+  {{ description }}
+</p>
+<div class="auction-buy-now_deep">
+  <span>Buy now:</span>
+  <p class="auction-buy-now-price">
+    {{ buy_now_price }} USD
+  </p>
+</div>
+<div class="auction-call_deep">
+  <span>Call price:</span>
+  <p class="auction-call-price">
+    {{ call_price }} USD
+  </p>
+</div>
+{% endblock %}

@@ -240,6 +240,8 @@ p {
   color: #168080;
   font-weight: bold;
   font-size: 1.5em;
+  margin: 10px;
+  display: block;
 }
 
 .auction-description {
@@ -251,13 +253,11 @@ p {
   width: 60%;
 }
 
-.auction-buy-now-price, .auction-call-price {
-  padding: 10px;
+.auction-description_deep {
+  font-size: 18px;
+  background: whitesmoke;
+  padding: 20px;
   border-radius: 4px;
-  border: 1px solid #cfcfcf;
-  background: #eceaea;
-  color: #384856;
-  display: inline;
 }
 
 .auction-buy-now, .auction-call {
@@ -265,6 +265,21 @@ p {
   float: right;
   margin-top: -62px;
   margin-left: 10px;
+}
+
+.auction-buy-now_deep, .auction-call_deep {
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.auction-buy-now-price, .auction-call-price {
+  padding: 7px;
+  border-radius: 4px;
+  border: 1px solid #cfcfcf;
+  background: #eceaea;
+  color: #384856;
+  display: inline;
 }
 
 .auction-buy-now span, .auction-call span {

@@ -5,6 +5,7 @@ from auctions.forms import Register, Login, AddAuction
 from auctions.models import User, Auction
 from auctions import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
+from datetime import datetime
 
 
 @app.route("/")
@@ -21,6 +22,23 @@ def about():
 @app.route("/auctions")
 def auctions():
     return render_template("auctions.html", auction=Auction)
+
+
+@app.route("/auction/<id>")
+def auction(id):
+    auction = Auction.query.get(id)
+    return render_template(
+        "auction.html",
+        title=auction.title,
+        description=auction.description,
+        call_price=auction.call_price,
+        buy_now_price=auction.buy_now_price,
+        date_posted=auction.date_posted,
+        date_posted_human=str(auction.date_posted).split(".", 1)[0],
+        date_end=auction.date_end,
+        date_now=datetime.utcnow(),
+        image=auction.image,
+    )
 
 
 # Displayed if user not logged in.
@@ -104,7 +122,7 @@ def add_auction():
                 buy_now_price=form.buy_now_price.data,
                 call_price=form.call_price.data,
                 image=form.image.data,
-                user_id=User.query.filter_by(username=current_user.username).first().id
+                user_id=User.query.filter_by(username=current_user.username).first().id,
             )
             db.session.add(auction)
             db.session.commit()
