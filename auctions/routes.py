@@ -8,20 +8,15 @@ from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
 
 
+# Displayed all time.
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("auctions.html", auction=Auction)
 
 
-# Displayed all time.
 @app.route("/about")
 def about():
     return render_template("about.html")
-
-
-@app.route("/auctions")
-def auctions():
-    return render_template("auctions.html", auction=Auction)
 
 
 @app.route("/auction/<id>")
