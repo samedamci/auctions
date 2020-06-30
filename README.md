@@ -15,5 +15,7 @@ Simple auction portal written in Flask created for increasing web development sk
 - [ ] Removing auctions
 - [ ] User settings
 - [ ] User profiles
+- [ ] Functional cart
+- [ ] Functional obervations
 
 more...
