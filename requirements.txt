@@ -1,0 +1,9 @@
+wtforms
+datetime
+python_dotenv
+flask
+flask_wtf
+flask_sqlalchemy
+flask_bcrypt
+flask_login
+email_validator
